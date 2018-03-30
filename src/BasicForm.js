@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './BasicForm.css';
-import { Button,FormGroup } from 'reactstrap'
+import { Button,FormGroup } from 'reactstrap';
+import ImagesUploader from 'react-images-uploader';
+import 'react-images-uploader/styles.css';
+import 'react-images-uploader/font.css';
 
 class BasicForm extends React.Component {
 
@@ -9,15 +12,18 @@ class BasicForm extends React.Component {
         super(props);
 
         this.state = {
-            userid: '',
+            userid: '10295',
             name: '',
             useremail: '',
             password: '',
-            passwordConfirm: ''
+            passwordConfirm: '',
+            pictures: []
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.onDrop = this.onDrop.bind(this);
+
     }
 
     handleChange(e) {
@@ -40,6 +46,12 @@ class BasicForm extends React.Component {
         } else {
             console.log('form is valid: submit');
         }
+    }
+
+    onDrop(picture) {
+        this.setState({
+            pictures: this.state.pictures.concat(picture),
+        });
     }
 
     showFormErrors() {
@@ -99,8 +111,27 @@ class BasicForm extends React.Component {
                     <h2>Settings</h2>
                 </div>
                 <div className="row">
-                <div className="col-xs-12 col-lg-3 col-md-3 col-sm-12">
-                Photo
+                <div className="col-xs-12 col-lg-4 col-md-4 col-sm-12">
+                <div className="form-group">
+                <ImagesUploader
+                id="userimageLabel"
+                url="E:\"
+                optimisticPreviews
+                placeholder="image"
+                multiple={true}
+                onLoadEnd={(err) => {
+                    if (err) {
+                        console.error(err);
+                    }else{
+                        console.log("loaded");
+                    }
+                }}
+                
+                label="Upload a picture"
+                />
+                <div className="error" id="userimageError" />
+                </div>
+
                 </div>
                 <div className="col-xs-12 col-lg-auto col-md-auto col-sm-12">
                 <div className="form-group">
@@ -111,7 +142,7 @@ class BasicForm extends React.Component {
                         ref="userid"
                         value={this.state.userid}
                         onChange={this.handleChange}
-                        size="40" required />
+                        size="40" required disabled/>
                     <div className="error" id="useridError" />
                 </div>
                 <div className="form-group">

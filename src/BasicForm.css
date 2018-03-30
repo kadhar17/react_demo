@@ -19,11 +19,11 @@ body {
 }
 
 input.active:valid {
-  box-shadow: 0 0 5px 1px green;
+  border-bottom: 1px solid green;
 }
 
 input.active:invalid {
-  box-shadow: 0 0 5px 1px red;
+  border-bottom: 1px solid red;
 }
 
 .error {
@@ -31,3 +31,72 @@ input.active:invalid {
   font-size: 12px;
   margin-top: 5px;
 }
+
+input[type='text']:disabled{
+  border-bottom: 1px solid grey;
+}
+
+.iu-imgPreview {
+  position: relative;
+  display: inline-block;
+  margin: 5px 10px 5px 0;
+  width: 160px!important;
+  height: 160px!important;
+  border: 1px solid #bec3c7;
+  background-position: 50%;
+  border-radius: 80px!important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  vertical-align: bottom;
+}
+
+/*
+.iu-button-container .iu-button-button {
+  width:160px!important;
+  height: 160px!important;
+  border-radius: 80px!important;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: currentColor;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: background-color .3s,width .3s,border-width .3s,border-color .3s,border-radius .3s;
+  -o-transition: background-color .3s,width .3s,border-width .3s,border-color .3s,border-radius .3s;
+  transition: background-color .3s,width .3s,border-width .3s,border-color .3s,border-radius .3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+} 
+*/
+
+.iu-pseudobutton,.iu-dropzone,.iu-filesInputContainer,.iu-loadContainer{
+  width:160px!important;
+  height: 160px!important;
+  border-radius: 80px!important;
+  background-color: transparent!important;
+  border-color:#fff!important;
+}
+
+.iu-dropzone,.loading,.iu-button-container.error{
+  border-color:#fff!important;
+  background-color: transparent!important;
+}
+
+.iu-button-button span{
+  background-color: transparent!important;
+}
+
+.iu-loadContainer{
+  border: 1px solid grey!important;
+}
+
