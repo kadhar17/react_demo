@@ -10,10 +10,10 @@ class BasicForm extends React.Component {
 
     constructor(props) {
         super(props);
-
+        console.log(props)
         this.state = {
-            userid: '10295',
-            name: '',
+            userid: this.props.userid,
+            name: this.props.name,
             useremail: '',
             password: '',
             passwordConfirm: '',
@@ -22,7 +22,6 @@ class BasicForm extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.onDrop = this.onDrop.bind(this);
 
     }
 
@@ -43,15 +42,12 @@ class BasicForm extends React.Component {
 
         if (!this.showFormErrors()) {
             console.log('form is invalid: do not submit');
+            alert("There are some changes that need to be made.")
         } else {
             console.log('form is valid: submit');
+            alert("Successfully Saved")
+            
         }
-    }
-
-    onDrop(picture) {
-        this.setState({
-            pictures: this.state.pictures.concat(picture),
-        });
     }
 
     showFormErrors() {
@@ -112,8 +108,8 @@ class BasicForm extends React.Component {
                 </div>
                 <div className="row">
                 <div className="col-xs-12 col-lg-4 col-md-4 col-sm-12">
-                <div className="form-group">
-                <ImagesUploader
+                {/*<div className="form-group">
+                 <ImagesUploader
                 id="userimageLabel"
                 url="E:\"
                 optimisticPreviews
@@ -130,7 +126,7 @@ class BasicForm extends React.Component {
                 label="Upload a picture"
                 />
                 <div className="error" id="userimageError" />
-                </div>
+                </div> */}
 
                 </div>
                 <div className="col-xs-12 col-lg-auto col-md-auto col-sm-12">
@@ -204,7 +200,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="container">
-                <BasicForm />
+                <BasicForm userid='10296' name='abdul' />
             </div>
         );
     }
