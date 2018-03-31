@@ -136,6 +136,8 @@ class BasicForm extends React.Component {
                         type="text"
                         name="userid"
                         ref="userid"
+                        maxLength='30'
+                        placeholder="userid"
                         value={this.state.userid}
                         onChange={this.handleChange}
                         size="40" required disabled/>
@@ -147,6 +149,8 @@ class BasicForm extends React.Component {
                         type="text"
                         name="name"
                         ref="name"
+                        maxLength='30'
+                        placeholder="name"
                         value={this.state.name}
                         onChange={this.handleChange}
                         required />
@@ -160,6 +164,7 @@ class BasicForm extends React.Component {
                         type="email"
                         name="useremail"
                         ref="useremail"
+                        maxLength='30'
                         value={this.state.useremail}
                         onChange={this.handleChange}
                         required />
@@ -171,6 +176,7 @@ class BasicForm extends React.Component {
                         type="password"
                         name="password"
                         ref="password"
+                        maxLength='30'
                         value={this.state.password}
                         onChange={this.handleChange}
                         pattern=".{5,}"
@@ -184,6 +190,7 @@ class BasicForm extends React.Component {
                         type="password"
                         name="passwordConfirm"
                         ref="passwordConfirm"
+                        maxLength='30'
                         value={this.state.passwordConfirm}
                         onChange={this.handleChange}
                         required />
